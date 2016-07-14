@@ -5,6 +5,8 @@
 var express = require('express');
   var routes = require('./routes');
   routes.usuario = require('./routes/usuario');
+  routes.testa = require('./routes/teste');
+  
   var http = require('http');
   var path = require('path');
    
@@ -17,9 +19,11 @@ var express = require('express');
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
   
+
+  app.get('/teste', routes.testa);
   app.get('/', routes.index);
-  app.get('/test', routes.test);
   app.get('/usuario/login', routes.usuario.login);
+
    
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
