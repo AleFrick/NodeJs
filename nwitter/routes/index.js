@@ -2,8 +2,16 @@
 /*
  * GET home page.
  */
+var admin = require('./admin');
+var usuario = require('./usuario');
 
-exports.index = function(req, res){
+function index(req, res){
   res.render('index', { title: 'Express' });
+};
+
+module.exports = {
+	index: index,
+	admin: admin,
+	usuario: usuario
 };
 
